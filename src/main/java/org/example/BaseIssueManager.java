@@ -12,7 +12,6 @@ public class BaseIssueManager {
 
     public BaseIssueManager(String url, String ApiKey) {
         this.redmineManager = RedmineManagerFactory.createWithApiKey(url, ApiKey);
-
     }
     public Issue getBaseIssue(Issue issue,int project_id, int assigneeId){
 

@@ -4,7 +4,7 @@ import com.taskadapter.redmineapi.bean.Issue;
 
 import java.util.Date;
 
-public class BaseIssueTemplate extends Issue{
+public class BaseIssueTemplate extends IssueTemplate{
 
 
     public BaseIssueTemplate(String week, Date start) {
@@ -27,19 +27,5 @@ public class BaseIssueTemplate extends Issue{
         setStartDate(start);
         setDueDate(new Date(start.getYear(), start.getMonth(), start.getDate()+5));
     }
-
-    public Issue createIssue() {
-        Issue issue = new Issue();
-        issue.setSubject(getSubject());
-        issue.setDescription(getDescription());
-        issue.setStatusId(getStatusId());
-        issue.setStartDate(getStartDate());
-        issue.setDueDate(getDueDate());
-        return issue;
-    }
-
-
-
-
 
 }

@@ -38,7 +38,7 @@ public class RedmineTicketCreator {
             childIssue.setStatusId(status); // In Progress
             childIssue.setStartDate(start_d); // Replace with the Monday date
             childIssue.setDueDate(end_d); // +5 days from start
-
+//            childIssue.setCategory()
 //                parentIssue.addCategory("2023/WW"); // Add a category or tag
             childIssue.setAssigneeId(assigneeId);
             childIssue.setParentId(parentIssue.getId());

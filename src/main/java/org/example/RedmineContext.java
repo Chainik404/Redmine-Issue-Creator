@@ -7,6 +7,18 @@ public class RedmineContext {
     private int statusId;
     private Date start;
     private Date end;
+    private int hours;
+    private int minutes;
+
+
+    public RedmineContext(int week, int statusId, Date start, int hours, int minutes) {
+        this.week = week;
+        this.statusId = statusId;
+        this.start = start;
+        this.end = new Date(start.getYear(), start.getMonth(), start.getDate()+5);
+        this.hours = hours;
+        this.minutes = minutes;
+    }
 
     public RedmineContext(int week, int statusId, Date start) {
         this.week = week;
@@ -14,6 +26,23 @@ public class RedmineContext {
         this.start = start;
         this.end = new Date(start.getYear(), start.getMonth(), start.getDate()+5);
     }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
 
     public int getWeek() {
         return week;

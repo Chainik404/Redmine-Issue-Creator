@@ -23,10 +23,13 @@ public class Main {
         int assignee_id = 1;
 
         int status_id = 1;
+        int year = 2023;
+        int month = Calendar.OCTOBER;
+        int date = 11;
 
 
 
-        Date today = new Date(123, Calendar.OCTOBER, 11, 15,45);
+        Date today = new Date(year-1900, month, date, 15,45);
 
         RedmineManagerOperator rmo = new RedmineManagerOperator(redmineURL,apiAccessKey);
 
@@ -34,8 +37,6 @@ public class Main {
 
 
         List<Issue> kids = new ArrayList<>();
-
-
 
 
         Issue a1 = new BaseIssueTemplate(redmineContext).createIssue();
@@ -47,6 +48,9 @@ public class Main {
         Issue parent = rmo.getBaseIssue(a1,project_id,assignee_id);
         Issue child =  rmo.getBaseIssue(m1,project_id,assignee_id);
 
+//        rmo.getAllCustomFields();
+        rmo.addCustomField(parent,1, "cutomField","2023/13");
+//        rmo.getCustomFieldByName("cutomField");
         kids.add(child);
         rmo.createComposedIssue(parent,kids);
 

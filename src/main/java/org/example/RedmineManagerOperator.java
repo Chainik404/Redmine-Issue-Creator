@@ -3,12 +3,10 @@ package org.example;
 import com.taskadapter.redmineapi.RedmineException;
 import com.taskadapter.redmineapi.RedmineManager;
 import com.taskadapter.redmineapi.RedmineManagerFactory;
-import com.taskadapter.redmineapi.bean.CustomFieldDefinition;
-import com.taskadapter.redmineapi.bean.Issue;
-import com.taskadapter.redmineapi.bean.IssueCategory;
-import com.taskadapter.redmineapi.bean.Project;
+import com.taskadapter.redmineapi.bean.*;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class RedmineManagerOperator {
@@ -98,6 +96,14 @@ public class RedmineManagerOperator {
             System.out.println("==================================================");
         }
     }
+    public void addCustomField(Issue issue,int id,String name, String value){
+        CustomField customField = new CustomField();
+        customField.setId(1);
+        customField.setValue(value);
+        customField.setName(name);
+
+        issue.addCustomField(customField);
+    }
 
     public void getCustomFieldByName(String fieldName){
         List<CustomFieldDefinition> cfd;
@@ -109,9 +115,9 @@ public class RedmineManagerOperator {
 
         for (CustomFieldDefinition customFieldDefinition : cfd) {
             if (customFieldDefinition.getName().equals(fieldName)) {
-                System.out.println(customFieldDefinition.getId());
+                System.out.println(customFieldDefinition);
             }
         }
-        throw new RuntimeException("Custom Field definition '" + fieldName + "' is not found on server.");
+//        throw new RuntimeException("Custom Field definition '" + fieldName + "' is not found on server.");
     }
 }

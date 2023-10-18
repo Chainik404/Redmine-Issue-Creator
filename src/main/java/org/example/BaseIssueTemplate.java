@@ -7,8 +7,9 @@ import java.util.Date;
 public class BaseIssueTemplate extends IssueTemplate{
 
 
-    public BaseIssueTemplate(String week, Date start) {
-        String subject =  String.format("Administrative Tasks (Week %s)",week);
+    public BaseIssueTemplate(RedmineContext redmineContext) {
+        int week  = redmineContext.getWeek();
+        String subject =  String.format("Administrative Tasks (Week %n)",week);
 
         String desc = String.format("""
                 Administrative Tasks (Week %s)
@@ -20,12 +21,9 @@ public class BaseIssueTemplate extends IssueTemplate{
                     weekly reports review
                     monitoring the blog posts
                 """,week);
-
         setSubject(subject);
         setDescription(desc);
-        setStatusId(1);
-        setStartDate(start);
-        setDueDate(new Date(start.getYear(), start.getMonth(), start.getDate()+5));
+        setStats(redmineContext);
     }
 
 }

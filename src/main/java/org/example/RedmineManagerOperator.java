@@ -21,7 +21,11 @@ public class RedmineManagerOperator {
         this.redmineManager = RedmineManagerFactory.createWithUserAuth(redmineURL, username, password);
 
     }
+    public RedmineManagerOperator(String redmineURL, String APi) {
+        this.redmineURL = redmineURL;
+        this.redmineManager = RedmineManagerFactory.createWithApiKey(redmineURL, APi);
 
+    }
 
     public Issue getBaseIssue(Issue issue, int project_id, int assigneeId){
 
@@ -96,7 +100,7 @@ public class RedmineManagerOperator {
     }
     public void addCustomField(Issue issue,int id,String name, String value){
         CustomField customField = new CustomField();
-        customField.setId(1);
+        customField.setId(id);
         customField.setValue(value);
         customField.setName(name);
 

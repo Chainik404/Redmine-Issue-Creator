@@ -12,8 +12,8 @@ public class Main {
         String redmineURL = "http://192.168.1.14";
         String apiAccessKey = "50a549c11f339eade87791e26babfc4ce123d985";
 
-        String username = "";
-        String password = "";
+//        String username = "";
+//        String password = "";
 
 //        var redmineURL = "https://issue.saltov.dynabic.com";
 //        var apiAccessKey = "d70d1ae6424837f9e19bcbe7b7316583e71b2188";
@@ -33,8 +33,8 @@ public class Main {
 
         Date today = new Date(year-1900, month, date, 15,45);
 
-        RedmineManagerOperator rmo = new RedmineManagerOperator(redmineURL,username,password);
-
+//        RedmineManagerOperator rmo = new RedmineManagerOperator(redmineURL,username,password);
+        RedmineManagerOperator rmo = new RedmineManagerOperator(redmineURL,apiAccessKey);
         RedmineContext redmineContext = new RedmineContext(week_num, status_id, today);
 
 

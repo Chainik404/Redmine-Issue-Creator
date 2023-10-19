@@ -11,17 +11,15 @@ import java.util.List;
 
 public class RedmineManagerOperator {
     String redmineURL;
-    String apiAccessKey;
 
     RedmineManager redmineManager;
 
 
 
-    public RedmineManagerOperator(String redmineURL, String apiAccessKey) {
+    public RedmineManagerOperator(String redmineURL, String username, String password) {
         this.redmineURL = redmineURL;
-        this.apiAccessKey = apiAccessKey;
-        this.redmineManager = RedmineManagerFactory.createWithApiKey(redmineURL, apiAccessKey);
-//        redmineManager.getUserManager().
+        this.redmineManager = RedmineManagerFactory.createWithUserAuth(redmineURL, username, password);
+
     }
 
 
